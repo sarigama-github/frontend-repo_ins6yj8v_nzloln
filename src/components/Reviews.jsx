@@ -1,4 +1,6 @@
 import React from 'react'
+import { motion } from 'framer-motion'
+import { Stagger, itemVariant } from './Reveal'
 
 const reviews = [
   {
@@ -26,14 +28,14 @@ export default function Reviews() {
 
       <div className="relative mx-auto max-w-6xl px-6">
         <h2 className="text-2xl md:text-4xl font-bold text-white">What Clients Say</h2>
-        <div className="mt-10 grid gap-6 md:grid-cols-3">
+        <Stagger className="mt-10 grid gap-6 md:grid-cols-3">
           {reviews.map((r, i) => (
-            <figure key={i} className="rounded-2xl border border-yellow-400/10 bg-white/5 p-6 backdrop-blur-xl shadow-[0_10px_40px_rgba(0,0,0,0.45)]">
+            <motion.figure key={i} variants={itemVariant} className="rounded-2xl border border-yellow-400/10 bg-white/5 p-6 backdrop-blur-xl shadow-[0_10px_40px_rgba(0,0,0,0.45)]">
               <blockquote className="text-zinc-200">“{r.quote}”</blockquote>
               <figcaption className="mt-4 text-sm text-zinc-400">{r.name} — {r.role}</figcaption>
-            </figure>
+            </motion.figure>
           ))}
-        </div>
+        </Stagger>
       </div>
     </section>
   )

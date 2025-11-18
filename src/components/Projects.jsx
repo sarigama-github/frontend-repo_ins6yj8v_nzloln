@@ -1,4 +1,6 @@
 import React from 'react'
+import { motion } from 'framer-motion'
+import { Stagger, itemVariant } from './Reveal'
 
 const projects = [
   {
@@ -36,12 +38,12 @@ export default function Projects() {
             <h2 className="text-2xl md:text-4xl font-bold text-white">Selected Projects</h2>
             <p className="mt-2 text-zinc-400 max-w-xl">A snapshot of recent brand, digital, and campaign work for clients across tech, lifestyle, and culture.</p>
           </div>
-          <a href="#contact" className="hidden md:inline-flex rounded-xl border border-yellow-400/30 bg-white/10 px-4 py-2 text-sm font-medium text-white/90 backdrop-blur-md hover:bg-white/20 transition-colors">Start a Project</a>
+          <a href="#contact" className="hidden md:inline-flex rounded-xl border border-yellow-400/30 bg:white/10 px-4 py-2 text-sm font-medium text-white/90 backdrop-blur-md hover:bg-white/20 transition-colors">Start a Project</a>
         </div>
 
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <Stagger className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {projects.map((p, idx) => (
-            <article key={idx} className="group relative overflow-hidden rounded-2xl border border-yellow-400/10 bg-white/5 backdrop-blur-xl shadow-[0_10px_40px_rgba(0,0,0,0.45)]">
+            <motion.article key={idx} variants={itemVariant} className="group relative overflow-hidden rounded-2xl border border-yellow-400/10 bg-white/5 backdrop-blur-xl shadow-[0_10px_40px_rgba(0,0,0,0.45)]">
               <div className="relative h-56">
                 <img src={p.image} alt={p.title} className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent" />
@@ -50,9 +52,9 @@ export default function Projects() {
                 <h3 className="text-lg font-semibold text-white">{p.title}</h3>
                 <p className="mt-1 text-xs uppercase tracking-widest text-yellow-300/80">{p.tags.join(' • ')}</p>
               </div>
-            </article>
+            </motion.article>
           ))}
-        </div>
+        </Stagger>
       </div>
     </section>
   )
