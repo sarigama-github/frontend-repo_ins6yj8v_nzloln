@@ -2,6 +2,10 @@ import React from 'react'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import Projects from './components/Projects'
+import Services from './components/Services'
+import About from './components/About'
+import Reviews from './components/Reviews'
+import Contact from './components/Contact'
 import CTA from './components/CTA'
 
 function App() {
@@ -16,6 +20,10 @@ function App() {
       <main className="relative">
         <Hero />
         <Projects />
+        <Services />
+        <About />
+        <Reviews />
+        <Contact />
         <CTA />
         <footer className="border-t border-yellow-400/10 py-10">
           <div className="mx-auto max-w-7xl px-6 flex items-center justify-between text-sm text-zinc-400">
